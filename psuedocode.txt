@@ -1,0 +1,27 @@
+// computing control flow graph
+
+for (let BB of BasicBlocks) {
+    if (BB.endOp == JUMPIF) {
+        BasicBlock CurrentBlock
+
+        BasisBlock trueSuccesor = OP.branch()
+        BasicBlock falseSuccessor = CurrentBlock.nextBBLeader()
+
+        cfg.addEdge(CurrentBlock, trueSuccesor)
+        cfg.addEdge(CurrentBlock, falseSuccessor)
+    }
+
+    if (BB.endOP == JUMP) {
+        BasicBlock CurrentBlock
+
+        BasisBlock trueSuccesor = OP.branch()
+
+        cfg.addEdge(CurrentBlock, trueSuccesor)
+    }
+
+    if (BB.endOP == LABEL_LEADER) {
+        BasicBlock CurrentBlock
+
+        cfg.addEdge(CurrentBlock, CurrentBlock.nextBBLeader())
+    }
+}
